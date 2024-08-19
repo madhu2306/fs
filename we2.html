@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <input type="text" id="locInput" placeholder="Enter your location..." class="button">
+        <button class="search" id="search">Search</button>
+        <div class="weather-info">
+            <h2 id="loc"></h2>
+            <p id="temp"></p>
+            <p id="des"></p>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-image: url('https://3.bp.blogspot.com/-XhZjBQXhGaw/VaB1aXRZHhI/AAAAAAAAVLI/eqUnKm-thZo/s1600/atreesun.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: background-image 0.5s ease-in-out;
+        }
+        .container {
+            background-color: rgba(2, 2, 11, 0.5);
+            width: 500px;
+            height: 400px;
+            margin-top: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+            text-align: center;
+            animation: search 5s infinite;
+            transition: background-color 0.3s;
+        }
+        .container h1 {
+            font-size: 50px;
+            font-weight: 800;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            animation: search 5s infinite;
+            transition: background-color 0.3s;
+            color: aliceblue;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            width: 300px;
+            background-color: aliceblue;
+            border: 6px solid rgb(248, 33, 126);
+            color: black;
+            font-size: 30px;
+            font-weight: 100px;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 10px;
+            font-weight: 100;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            animation: search 5s infinite;
+            transition: background-color 0.3s;
+        }
+        .search {
+            background-color: rgb(239, 232, 232);
+            width: 130px;
+            height: 40px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border-width: 4px;
+            color: rgb(244, 13, 33);
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: large;
+            cursor: pointer;
+            animation: search 5s infinite;
+            transition: background-color 0.3s;
+        }
+        @keyframes search {
+            0% {
+                border-color: #1a06f9;
+                box-shadow: 0 0 5px #2706fa;
+            }
+            50% {
+                border-color: #f10606;
+                box-shadow: 0 0 20px #f20505;
+            }
+            100% {
+                border-color: #3bf507;
+                box-shadow: 0 0 5px #26dd02;
+            }
+        }
+        .search:hover {
+            background-color: #0d0d0d;
+        }
+        .weather-info {
+            margin-top: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 20px;
+            color:azure;
+        }
+    </style>
+    <script>
+        const apiKey = 'd0330a622bdc16f0405ea5c12ae7d1fb';
+        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+        const locInput = document.getElementById('locInput');
+        const search = document.getElementById('search');
+        const loc = document.getElementById('loc');
+        const temp = document.getElementById('temp');
+        const des = document.getElementById('des');
+
+        search.addEventListener('click', () => {
+            const location = locInput.value;
+            if (location) {
+                fetchWeather(location);
+            }
+        });
+
+        function fetchWeather(location) {
+            const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    loc.textContent = data.name;
+                    temp.textContent = `${Math.round(data.main.temp)}°C`;
+                    des.textContent = data.weather[0].description;
+
+                    changeBackground(data.main.temp);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                });
+                
+        }
+        function changeBackground(temp) {
+            const body = document.body;
+
+            if (temp < 2) {
+                body.style.backgroundImage = "url('https://lh5.googleusercontent.com/-bb_Ahvo097E/U6xz-JDPCiI/AAAAAAAAMG4/FqTXCpHj_IY/w800-h500-no/Tree_winter_snow_for_windows_vista-SNOW.gif')";
+            } else if (temp >= 2 && temp <= 25) {
+                body.style.backgroundImage = "url('https://i.gifer.com/Dv9E.gif')";
+            } else if (temp > 25 && temp <= 30) {
+                body.style.backgroundImage = "url('https://www.bing.com/th/id/OGC.89f4177ef9f8e07a1b4ecba8b21a4263?pid=1.7&rurl=https%3a%2f%2fmedia1.tenor.com%2fimages%2f89f4177ef9f8e07a1b4ecba8b21a4263%2ftenor.gif%3fitemid%3d7691215&ehk=hlyJEAI9k4rbnVmo3NI%2b6yui33kSEyJK%2ftYTmcDK1B4%3d')";
+            }else if (temp > 30 && temp <= 35) {
+                body.style.backgroundImage = "url('https://media.giphy.com/media/tQkTjNpFY8Bu8/giphy.gif')";
+            }else {
+                body.style.backgroundImage = "url('https://c.pxhere.com/images/d1/6d/20d6e315f9b0d6567b582f7c5423-1668138.jpg!d')";
+            }
+        }
+    </script>
+</body>
+</html>

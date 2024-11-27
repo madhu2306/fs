@@ -1,0 +1,93 @@
+ body {
+            background-image: url('https://www.xmple.com/wallpaper/blue-pink-gradient-linear-1920x1080-c2-00008b-ff1493-a-180-f-14.svg');
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-family: 'Times New Roman', Times, serif;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            width: 500px;
+            margin-top: 50px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .todo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .todo-body {
+            background: #030303;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            height:50px;
+        }
+
+        .todoInput {
+            padding: 10px;
+            background-color: #e7e2e2;
+            font-size: 20px;
+            width: 400px;
+            height: 20px;
+
+        }
+
+        .todo-body img {
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: black;
+            padding: 10px;
+            height: 30px;
+            width: 30px;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            font-size: medium;
+            font-family: 'Times New Roman', Times, serif;
+            color: #f6f0f0;
+            background-color: #030303;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        h5 {
+            text-align: center;
+            color: green;
+        }
+
+        .todoControl {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+        }
+
+        .todoCheckbox {
+            width: 20px;
+            height: 20px;
+        }
+
+        .todoActions {
+            display: flex;
+            align-items: center;
+            width: 50px;
+        }

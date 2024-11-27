@@ -1,0 +1,90 @@
+   body {
+            color: aliceblue;
+            justify-content: center;
+            background-image: url('https://e0.pxfuel.com/wallpapers/739/128/desktop-wallpaper-night-sky-background-night-sky-aesthetic.jpg');
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .time-header {
+            display: inline-block;
+            margin: 20px;
+            margin-bottom: 20px;
+        }
+        .time-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .stopwatch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid rgb(245, 21, 223);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: rgb(255, 0, 200);
+            box-shadow: 0 0 10px rgba(234, 6, 237, 0.901);
+            animation: pulse 1.5s infinite;
+            margin: 10px;
+        }
+        .circle-label {
+            font-size: 0.5em;
+            margin-top: 5px;
+            color: rgb(255, 255, 255);
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px rgba(253, 4, 145, 0.942);
+            }
+            50% {
+                box-shadow: 0 0 20px rgb(245, 4, 165);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(241, 2, 173, 0.984);
+            }
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+        }
+        button {
+            background-color: rgb(244, 14, 91);
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            color: aliceblue;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(247, 8, 151, 0.94);
+            transition: background-color 0.3s ease;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top:200px;
+        }
+        button:hover {
+            background-color: rgba(245, 19, 109, 0.959);
+        }
+        button:active {
+            box-shadow: 0 0 2px rgba(239, 18, 139, 0.836);
+        }
